@@ -49,6 +49,7 @@ public class ApplicationLogic {
 	public void clearAll() {
 		tableCardList.clear();
 		handCardID = null;
+		
 	}
 
 }

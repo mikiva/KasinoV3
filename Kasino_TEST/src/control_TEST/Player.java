@@ -24,6 +24,7 @@ public interface Player {
 	public void addNbrOfSpades(int nbrOfSpades);
 	public int getNbrOfTakenCards();
 	public void addNbrOfTakenCards(int nbrOfTakenCards);
+	public void play();
 	
 	
 

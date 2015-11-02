@@ -7,6 +7,7 @@ import java.io.IOException;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import data_TEST.Card;
@@ -21,6 +22,7 @@ public class GameLogic {
 	private Table table;
 	private PlayerList playerList;
 	private Scoreboard scoreboard;
+	private int currentPlayer;
 
 	public GameLogic(GameRules rules, Dealer dealer, PlayerList playerList){
 
@@ -41,6 +43,7 @@ public class GameLogic {
 	public void setTable(Table table) {
 		this.table = table;
 	}
+
 
 	public void setScoreboard(Scoreboard scoreboard) {
 		this.scoreboard = scoreboard;
@@ -68,6 +71,11 @@ public class GameLogic {
 		}
 		return false;
 	}
+	
+	public ArrayList<Integer> getTableIntegerList(){
+
+		return table.getTableIntegerList();
+	}
 
 	public void cardPlaced(Card c) {
 		if(!table.isCardOnTable(c))
@@ -81,6 +89,20 @@ public class GameLogic {
 	//		return "";
 	//	}
 
+	public void setCurrentPlayer(int current){
+		
+		this.currentPlayer = current;
+		if(playerList.getPlayer(current) instanceof PlayerAI)
+			{
+			playerList.getPlayer(current).play();
+			
+			
+			}
+		
+		
+	}
+	
+	
 	public void newGame() { //Återställer kortleken och rensar spelarnas händer
 
 		playerList.clearAllHands();

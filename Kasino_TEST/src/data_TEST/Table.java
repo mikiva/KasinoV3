@@ -6,9 +6,11 @@ import java.util.List;
 public class Table {
 
 	List<Card> onTable;
+	ArrayList<Integer> tableIntegerList;
 
 	public Table() {
 		onTable = new ArrayList<Card>();
+		tableIntegerList = new ArrayList<Integer>();
 	}
 
 	public void addCardToTable(Card card) {
@@ -58,6 +60,16 @@ public class Table {
 	
 	public List<Card> getTableCards() {
 		return onTable;
+	}
+	
+	public ArrayList<Integer> getTableIntegerList(){
+		
+		for (int i = 0; i < onTable.size(); i++) {
+			tableIntegerList.add(onTable.get(i).getId());
+		}
+		return tableIntegerList;
+		
+		
 	}
 
 }

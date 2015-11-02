@@ -102,6 +102,8 @@ public class PlayerPanel extends JPanel {
 				}		
 			}
 		}
+	
+	
 	}
 
 	public CardLabel getCardLabel(int index) {

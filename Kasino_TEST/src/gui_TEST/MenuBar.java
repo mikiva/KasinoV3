@@ -70,11 +70,13 @@ public class MenuBar extends JMenuBar {
 						}
 
 						tCounter.nextPlayerTurn();
+						
 					}
 				}
 				appLogic.clearAll();
 				//playerPanel[currentTurn].setAllToSelectable();
 				tablePanel.setAllToSelectable();
+				logic.setCurrentPlayer(tCounter.getCurrentPlayersTurn());
 			}
 		});
 
@@ -89,10 +91,12 @@ public class MenuBar extends JMenuBar {
 					tablePanel.addCardToTable(appLogic.getHandCardID());
 					playerPanel[tCounter.getCurrentPlayersTurn()].removeCardFromHand(appLogic.getHandCardID());
 					tCounter.nextPlayerTurn();
+					
 				}
 				appLogic.clearAll();
+				logic.setCurrentPlayer(tCounter.getCurrentPlayersTurn());
 			}
-
+	
 		});
 
 		add(btnNewGame);

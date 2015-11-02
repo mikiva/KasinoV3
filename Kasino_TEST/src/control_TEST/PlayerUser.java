@@ -112,5 +112,6 @@ public class PlayerUser implements Player{
 	public void addNbrOfTakenCards(int nbrOfTakenCards) {
 		this.nbrOfTakenCards = nbrOfTakenCards;
 	}
+	public void play(){}
 
 }

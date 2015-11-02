@@ -18,7 +18,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Deck deck = new Deck();
-		GameRules rules = new GameRules(4, 0);
+		GameRules rules = new GameRules(1, 3);
 		Dealer dealer = new Dealer(deck, rules);
 		PlayerList playerList = new PlayerList(rules.getNbrOfPlayerUser(), rules.getNbrOfPlayerAI());
 		Table table = new Table();
