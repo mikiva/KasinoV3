@@ -25,9 +25,11 @@ public class GameRules {
 	
 	public boolean isLegal(Card[] cardsOnTable, Card cardOnHand) {
 
+		boolean legal = false;
+		
 		for (int i = 0; i < cardsOnTable.length; i++) {
-			if(cardOnHand.getValue() < cardsOnTable[i].getValue())
-				return false;
+			if(cardOnHand.getValue() == cardsOnTable[i].getValue())
+				legal = false;
 		}
 
 		int total = 0;
@@ -36,10 +38,11 @@ public class GameRules {
 			total += cardsOnTable[i].getValue();
 		}
 
-		if(total % cardOnHand.getValue() == 0)
-			return true;
+		//if(total % cardOnHand.getValue() == 0)
+		if(total == cardOnHand.getValue())
+			legal = true;
 
-		return false;
+		return legal;
 	}
 	
 	public int tempName(int value, String color, boolean tabbe) {

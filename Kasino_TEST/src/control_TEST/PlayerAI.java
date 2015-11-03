@@ -17,7 +17,7 @@ public class PlayerAI implements Player {
 	private int extraPoints;
 	private int nbrOfSpades;
 	private int nbrOfTakenCards;
-	
+
 	private ArrayList<Integer> tableList;
 
 	public PlayerAI(int playerID) {
@@ -37,16 +37,16 @@ public class PlayerAI implements Player {
 
 		for (int i = 0; i < hand.size(); i++) {
 
-			if(takeCard(tableList, hand.get(i).getId()))
+			if(logic.checkIfLegal(tableList, hand.get(i).getId(),  playerID))
 			{
-				System.out.println("Tog kort" + hand.get(i).toString());
+				System.out.println("Legal " + hand.get(i).toString());
 				return;
-		
+
 			}
 		}
 
 		placeCard(hand.get(0).getId());
-System.out.println("La ut kort");
+		System.out.println("La ut kort");
 
 
 
@@ -67,7 +67,7 @@ System.out.println("La ut kort");
 				}
 				hand.remove(i);
 			}
-				
+
 		}
 
 	}

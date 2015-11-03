@@ -37,23 +37,23 @@ public class MenuBar extends JMenuBar {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				for(int i = 0; i < playerPanel.length; i++)
-					{
+				{
 					playerPanel[i].setFaceDownCards();
 					playerPanel[i].repaint();
-					}
-				
+				}
+
 				logic.newGame();
 				appLogic.clearAll();
 				tablePanel.clearTable();
 				tablePanel.addStartingCards();
 
-				
+
 
 
 				playerPanel[0].setThisPlayersTurn(true);
-				
+
 				for (int i = 0; i < playerPanel.length; i++) {
 					playerPanel[i].setHandCards();
 					playerPanel[i].updateState();
@@ -87,6 +87,7 @@ public class MenuBar extends JMenuBar {
 				//playerPanel[currentTurn].setAllToSelectable();
 				tablePanel.setAllToSelectable();
 				logic.setCurrentPlayer(tCounter.getCurrentPlayersTurn());
+				
 			}
 		});
 
@@ -105,6 +106,7 @@ public class MenuBar extends JMenuBar {
 				}
 				appLogic.clearAll();
 				logic.setCurrentPlayer(tCounter.getCurrentPlayersTurn());
+			
 			}
 
 		});

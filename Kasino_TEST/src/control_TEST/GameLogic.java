@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.text.TabExpander;
+
 import data_TEST.Card;
 import data_TEST.Deck;
 import data_TEST.Table;
@@ -49,6 +51,23 @@ public class GameLogic {
 		this.scoreboard = scoreboard;
 	}
 
+	public boolean checkIfLegal(List<Integer> onTable, int cardID, int playerID){
+
+		Card[] cardArr = new Card[onTable.size()];
+		for (int i = 0; i < cardArr.length; i++) {
+			cardArr[i] = table.getCardOnTable(onTable.get(i));
+			//points += rules.tempName(cardArr[i].getValue(), cardArr[i].getColor(), table.isTableEmpty());
+		}
+		Card c = playerList.getPlayer(playerID).getCardOnHand(cardID);
+
+		if(rules.isLegal(cardArr, c))
+			return true;
+
+		else
+			return false;
+	}
+
+
 	public boolean cardTaken(List<Integer> onTable, int cardID, int playerID) {
 
 		int points = 0;
@@ -71,7 +90,7 @@ public class GameLogic {
 		}
 		return false;
 	}
-	
+
 	public ArrayList<Integer> getTableIntegerList(){
 
 		return table.getTableIntegerList();
@@ -90,19 +109,19 @@ public class GameLogic {
 	//	}
 
 	public void setCurrentPlayer(int current){
-		
+
 		this.currentPlayer = current;
 		if(playerList.getPlayer(current) instanceof PlayerAI)
-			{
+		{
 			playerList.getPlayer(current).play();
-			
-			
-			}
-		
-		
+
+
+		}
+
+
 	}
-	
-	
+
+
 	public void newGame() { //Återställer kortleken och rensar spelarnas händer
 
 		playerList.clearAllHands();
