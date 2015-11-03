@@ -26,7 +26,7 @@ public class cardTest {
 		
 		assertEquals("Wrong Deck size",52, deck.getDeck().size());
 		
-		assertEquals("Wrong value", 8, deck.getDeck().get(26).getValue());
+		assertEquals("Wrong value", 8, deck.getDeck().get(25).getValue());
 		
 		
 	}
@@ -37,6 +37,7 @@ public class cardTest {
 		for (int i = 0; i < 5; i++) {
 			deck.drawCard();
 		}
+		
 		assertEquals("Error", 47, deck.getDeck().size());
 		
 		
